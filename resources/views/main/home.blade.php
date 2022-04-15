@@ -1,6 +1,31 @@
 @extends('layouts.master')
 @section('title','Home')
 @section('content')
+<div class="jumbotron" style="background:url('https://www.nasa.gov/sites/default/files/styles/ubernode_alt_horiz/public/thumbnails/image/smap-weather.jpg');background-repeat:no-repeat;
+    background-size:100% 100vh;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <div class="card m-4 gradient-custom" style="border-radius: 25px;">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between mb-4 pb-2">
+                            <div>
+                                <h2 class="display-2"><strong>23°C</strong></h2>
+                                <p class="text-muted mb-0">Coimbra, Portugal</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm">
+            
+            </div>
+            <div class="col-sm">
+            
+            </div>
+        </div>
+    </div>  
+</div>
 <div class='container'>
     <div class='row'>
         <div class='col-md-12'>
@@ -23,7 +48,6 @@
     }
     var reg = document.getElementById("home");
     reg.classList.add('active');                  
-    reg.setAttribute("aria-current", "page");  
-          
+    reg.setAttribute("aria-current", "page");           
 </script>
 @endsection
