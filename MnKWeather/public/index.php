@@ -51,5 +51,5 @@ $kernel = $app->make(Kernel::class);
 $response = $kernel->handle(
     $request = Request::capture()
 )->send();
-
+set_time_limit(300);
 $kernel->terminate($request, $response);

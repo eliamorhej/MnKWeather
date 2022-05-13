@@ -1,9 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Facade;
+use Illuminate\Support\AppServiceProvider;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Foundation\Console\Kernel;
 
+//Storage::disk('public');
 return [
-
+    'log' => 'single',
+    'log_level' => env('APP_LOG_LEVEL', 'error'),
     /*
     |--------------------------------------------------------------------------
     | Application Name

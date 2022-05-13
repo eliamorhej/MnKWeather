@@ -18,24 +18,37 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav" id="navbarButtonsDiv">
+      <a id="home" class="nav-link active" href="{{ route('home') }}">Home</a>
         @if (auth()->user())
         <!-- if a link, would be vulnerable to csrf.
         we make it a post so that the user cant be logged out simply by entering a link-->
         <form id="logout" action="{{ route('logout') }}">
           @csrf
           <button type="submit" class="btn btn-dark">Logout</button>
-        </form>
+        </form>        
         @else
-          <a id="home" class="nav-link active" href="{{ route('home') }}">Home</a>
           <a id="register" class="nav-link" href="{{ route('register') }}">Register </a>
           <a id="login" class="nav-link" href="{{ route('login') }}">Log In</a>
           
         @endif
       </div>
     </div>
-    <form class="d-flex">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    <form class="d-flex" action="{{ route('search') }}" method="post" >
+    <select id="searchOption" name="searchOption">  
+        <option value = "City"> City   
+        </option>  
+        <option value = "Country"> Country   
+        </option>  
+        <option value = "Zip Code"> Zip Code  
+        </option>  
+      </select>
+    @csrf
+      @error("search") 
+      <div class="text-danger mt-2 text-sm">{{$message}}</div>
+      @enderror 
+      <input id="search" name="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success" type="submit">Search</button>
+      
     </form>
   </div>
 </nav>

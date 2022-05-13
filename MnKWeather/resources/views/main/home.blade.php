@@ -20,10 +20,12 @@
             <div class="col-sm">
             
             </div>
+        </div>
+              
             <div class="col-sm">
             
             </div>
-        </div>
+        
     </div>  
 </div>
 <div class='container'>
@@ -31,6 +33,9 @@
         <div class='col-md-12'>
             <h1>main page</h1>
         </div>
+        @if($errors->any())
+        <div class="text-danger mt-2 text-sm">{{$errors->first('message')}}</div> 
+        @endif
 
     </div>
 </div>

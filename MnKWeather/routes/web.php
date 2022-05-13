@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Main\ProfileController;
+use App\Http\Controllers\Main\SearchController;
 use App\Http\Controllers\Main\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
@@ -25,6 +27,12 @@ use App\Http\Controllers\Auth\RegisterController;
     Route::get('/logout', [LogoutController::class, "store"])->name("logout");
 
     Route::get("/", [HomeController::class, "index"])->name('home');
+
+    Route::get("/search", [SearchController::class, "deny"]);
+    Route::post("/search", [SearchController::class, "query"])->name('search');
+
+    Route::get("/pin/{locID}", [ProfileController::class, "pin"])->name('pin');
+    
     Route::get('/welcome', function () {
         return view('welcome');
     });
